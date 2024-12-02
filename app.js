@@ -422,51 +422,61 @@ function uiAdjustVKLayout() {
     // hide mic
     // vkMap['mic'].style = makeVKStyle(window.innerHeight - (vkh * 0.675), window.innerwidth * 0.5, vkw * 0.675, vkh * 0.675, fontSize * 0.675,)
     $id('vk-menu').style = makeVKStyle(window.innerHeight - (vkh * 1.425), window.innerwidth * 0.5, vkw * 0.675, vkh * 0.675, fontSize * 0.675)
-    $id('vk-menu').style.left = '0px';
+    $id('vk-menu').style.left = '10px';
 
     offTop += baseSize * 0.62; // Base vertical offset
     vkw = baseSize;
     vkh = baseSize;
     offLeft = window.innerWidth - abxyWidth; // Base horizontal offset
-    
-    const xOffset = -10; // Move left by 10px
-    const yOffset = 10;  // Move down by 10px
-    
+
+    // Adjust A, B, X, Y buttons to move left and up
     vkMap['a'].style = makeVKStyle(
-        offTop + abxyHeight / 2 - vkh * 0.425 + yOffset, // Adjust vertical position
-        offLeft + abxyWidth * 0.675 + xOffset,          // Adjust horizontal position
+        offTop + abxyHeight / 2 - vkh * 0.425 - 20, // Move up by 20px
+        offLeft + abxyWidth * 0.675 - 40,          // Move left by 20px
         vkw * 0.85,
         vkh * 0.85,
         fontSize
     );
     vkMap['b'].style = makeVKStyle(
-        offTop + abxyHeight - vkh * 0.975 + yOffset,
-        offLeft + abxyWidth / 2 - vkw * 0.425 + xOffset,
+        offTop + abxyHeight - vkh * 0.975 - 20,    // Move up by 20px
+        offLeft + abxyWidth / 2 - vkw * 0.425 - 40, // Move left by 20px
         vkw * 0.85,
         vkh * 0.85,
         fontSize
     );
     vkMap['x'].style = makeVKStyle(
-        offTop + abxyHeight * 0.025 + yOffset,
-        offLeft + abxyWidth / 2 - vkw * 0.425 + xOffset,
+        offTop + abxyHeight * 0.025 - 20,          // Move up by 20px
+        offLeft + abxyWidth / 2 - vkw * 0.425 - 40, // Move left by 20px
         vkw * 0.85,
         vkh * 0.85,
         fontSize
     );
     vkMap['y'].style = makeVKStyle(
-        offTop + abxyHeight / 2 - vkh * 0.425 + yOffset,
-        offLeft + abxyWidth * 0.025 + xOffset,
+        offTop + abxyHeight / 2 - vkh * 0.425 - 20, // Move up by 20px
+        offLeft + abxyWidth * 0.025 - 40,          // Move left by 20px
         vkw * 0.85,
         vkh * 0.85,
         fontSize
     );
 
-    vkw = baseSize * 1.0
-    vkh = baseSize * 1.0
-    offLeft = 0
-    $id('vk-stick').style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.9 / 2, offLeft + abxyHeight / 2 - vkw * 0.9 / 2, vkw * 0.9, vkh * 0.9, fontSize * 0.85)
-    vkStickPos = [offTop + abxyHeight / 2, offLeft + abxyHeight / 2, vkw * 0.9, vkh * 0.9, fontSize * 0.9]
-
+    // Adjust vk-stick to move right and up
+    vkw = baseSize * 1.0;
+    vkh = baseSize * 1.0;
+    offLeft = 0;
+    $id('vk-stick').style = makeVKStyle(
+        offTop + abxyHeight / 2 - vkh * 0.9 / 2 - 20, // Move up by 20px
+        offLeft + abxyHeight / 2 - vkw * 0.9 / 2 + 20, // Move right by 20px
+        vkw * 0.9,
+        vkh * 0.9,
+        fontSize * 0.85
+    );
+    vkStickPos = [
+        offTop + abxyHeight / 2 - 20, // Adjust vertical position
+        offLeft + abxyHeight / 2 + 20, // Adjust horizontal position
+        vkw * 0.9,
+        vkh * 0.9,
+        fontSize * 0.9
+    ];
     vkw = baseSize * 0.4
     vkh = baseSize * 0.4
     fontSize = baseSize * 0.4
