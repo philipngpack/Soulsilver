@@ -276,7 +276,7 @@ function wasmReady() {
         $id('loadrom').hidden = false;
 
         // Attempt to auto-load the ROM silently
-        autoLoadROM();
+        //autoLoadROM();
 
         var btn = $id('btn-choose-file');
         if (!btn.onclick) {
@@ -421,8 +421,13 @@ function uiAdjustVKLayout() {
     vkMap['r'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.775, vkw * 0.775, vkh * 0.775, fontSize * 0.775)
     // hide mic
     // vkMap['mic'].style = makeVKStyle(window.innerHeight - (vkh * 0.675), window.innerwidth * 0.5, vkw * 0.675, vkh * 0.675, fontSize * 0.675,)
-    $id('vk-menu').style = makeVKStyle(window.innerHeight - (vkh * 1.425), window.innerwidth * 0.5, vkw * 0.675, vkh * 0.675, fontSize * 0.675)
-    $id('vk-menu').style.left = '10px';
+    $id('vk-menu').style = makeVKStyle(
+        window.innerHeight - (vkh * 1.425), // Position at the bottom with some padding
+        window.innerWidth * 0.29 - (vkw * 0.675 / 2), // 1/4 from the left, adjusted for menu width
+        vkw * 0.675, // Width
+        vkh * 0.675, // Height
+        fontSize * 0.675 // Font size
+    );
 
     offTop += baseSize * 0.62; // Base vertical offset
     vkw = baseSize;
@@ -432,28 +437,28 @@ function uiAdjustVKLayout() {
     // Adjust A, B, X, Y buttons to move left and up
     vkMap['a'].style = makeVKStyle(
         offTop + abxyHeight / 2 - vkh * 0.425 - 20, // Move up by 20px
-        offLeft + abxyWidth * 0.675 - 40,          // Move left by 20px
+        offLeft + abxyWidth * 0.675 - 50,          // Move left by 20px
         vkw * 0.85,
         vkh * 0.85,
         fontSize
     );
     vkMap['b'].style = makeVKStyle(
         offTop + abxyHeight - vkh * 0.975 - 20,    // Move up by 20px
-        offLeft + abxyWidth / 2 - vkw * 0.425 - 40, // Move left by 20px
+        offLeft + abxyWidth / 2 - vkw * 0.425 - 50, // Move left by 20px
         vkw * 0.85,
         vkh * 0.85,
         fontSize
     );
     vkMap['x'].style = makeVKStyle(
         offTop + abxyHeight * 0.025 - 20,          // Move up by 20px
-        offLeft + abxyWidth / 2 - vkw * 0.425 - 40, // Move left by 20px
+        offLeft + abxyWidth / 2 - vkw * 0.425 - 50, // Move left by 20px
         vkw * 0.85,
         vkh * 0.85,
         fontSize
     );
     vkMap['y'].style = makeVKStyle(
         offTop + abxyHeight / 2 - vkh * 0.425 - 20, // Move up by 20px
-        offLeft + abxyWidth * 0.025 - 40,          // Move left by 20px
+        offLeft + abxyWidth * 0.025 - 50,          // Move left by 20px
         vkw * 0.85,
         vkh * 0.85,
         fontSize
@@ -465,14 +470,14 @@ function uiAdjustVKLayout() {
     offLeft = 0;
     $id('vk-stick').style = makeVKStyle(
         offTop + abxyHeight / 2 - vkh * 0.9 / 2 - 20, // Move up by 20px
-        offLeft + abxyHeight / 2 - vkw * 0.9 / 2 + 20, // Move right by 20px
+        offLeft + abxyHeight / 2 - vkw * 0.9 / 2 + 30, // Move right by 20px
         vkw * 0.9,
         vkh * 0.9,
         fontSize * 0.85
     );
     vkStickPos = [
         offTop + abxyHeight / 2 - 20, // Adjust vertical position
-        offLeft + abxyHeight / 2 + 20, // Adjust horizontal position
+        offLeft + abxyHeight / 2 + 30, // Adjust horizontal position
         vkw * 0.9,
         vkh * 0.9,
         fontSize * 0.9
