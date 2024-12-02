@@ -275,6 +275,12 @@ function wasmReady() {
         $id('loading').hidden = true
         $id('loadrom').hidden = false
         autoLoadROM()
+        var btn = $id('btn-choose-file')
+        if (!btn.onclick) {
+            btn.onclick = () => {
+                $id('rom').click()
+            }
+        }
     }, 2000)
 }
 
