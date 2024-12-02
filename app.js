@@ -261,27 +261,30 @@ async function autoLoadROM() {
         await tryLoadROM(romFile);
         console.log("ROM loaded successfully!");
     } catch (error) {
+        // Fail silently by just logging the error without notifying the user
         console.error("Error loading ROM:", error);
-        alert("Failed to load ss.nds. Please check the file and try again.");
     }
 }
 
 function wasmReady() {
-    Module._setSampleRate(47860)
+    Module._setSampleRate(47860);
     setTimeout(() => {
-        if ($id('loading').hidden == true) {
+        if ($id('loading').hidden === true) {
             return;
         }
-        $id('loading').hidden = true
-        $id('loadrom').hidden = false
-        autoLoadROM()
-        // var btn = $id('btn-choose-file')
-        // if (!btn.onclick) {
-        //     btn.onclick = () => {
-        //         $id('rom').click()
-        //     }
-        // }
-    }, 2000)
+        $id('loading').hidden = true;
+        $id('loadrom').hidden = false;
+
+        // Attempt to auto-load the ROM silently
+        autoLoadROM();
+
+        var btn = $id('btn-choose-file');
+        if (!btn.onclick) {
+            btn.onclick = () => {
+                $id('rom').click();
+            };
+        }
+    }, 2000);
 }
 
 function emuCopySavBuffer() {
