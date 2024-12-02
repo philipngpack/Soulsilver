@@ -415,36 +415,38 @@ function uiAdjustVKLayout() {
     $id('vk-menu').style = makeVKStyle(window.innerHeight - (vkh * 1.425), window.innerwidth * 0.5, vkw * 0.675, vkh * 0.675, fontSize * 0.675)
     $id('vk-menu').style.left = '0px';
 
-
-    offTop += baseSize * 0.62;
+    offTop += baseSize * 0.62; // Base vertical offset
     vkw = baseSize;
     vkh = baseSize;
-    offLeft = window.innerWidth - abxyWidth;
-
+    offLeft = window.innerWidth - abxyWidth; // Base horizontal offset
+    
+    const xOffset = -10; // Move left by 10px
+    const yOffset = 10;  // Move down by 10px
+    
     vkMap['a'].style = makeVKStyle(
-        offTop + abxyHeight / 2 - vkh * 0.425,
-        offLeft + abxyWidth * 0.675,
+        offTop + abxyHeight / 2 - vkh * 0.425 + yOffset, // Adjust vertical position
+        offLeft + abxyWidth * 0.675 + xOffset,          // Adjust horizontal position
         vkw * 0.85,
         vkh * 0.85,
         fontSize
     );
     vkMap['b'].style = makeVKStyle(
-        offTop + abxyHeight - vkh * 0.975,
-        offLeft + abxyWidth / 2 - vkw * 0.425,
+        offTop + abxyHeight - vkh * 0.975 + yOffset,
+        offLeft + abxyWidth / 2 - vkw * 0.425 + xOffset,
         vkw * 0.85,
         vkh * 0.85,
         fontSize
     );
     vkMap['x'].style = makeVKStyle(
-        offTop + abxyHeight * 0.025,
-        offLeft + abxyWidth / 2 - vkw * 0.425,
+        offTop + abxyHeight * 0.025 + yOffset,
+        offLeft + abxyWidth / 2 - vkw * 0.425 + xOffset,
         vkw * 0.85,
         vkh * 0.85,
         fontSize
     );
     vkMap['y'].style = makeVKStyle(
-        offTop + abxyHeight / 2 - vkh * 0.425,
-        offLeft + abxyWidth * 0.025,
+        offTop + abxyHeight / 2 - vkh * 0.425 + yOffset,
+        offLeft + abxyWidth * 0.025 + xOffset,
         vkw * 0.85,
         vkh * 0.85,
         fontSize
